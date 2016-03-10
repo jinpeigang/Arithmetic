@@ -1,0 +1,78 @@
+import java.util.Scanner;
+public class A{
+	public static void main(String []args){
+    int a,b,c,n=0;
+    Scanner reader=new Scanner(System.in);
+    System.out.print("整数运算请选 1，真分数运算请选  2:");
+    n=reader.nextInt();
+    if(n==1)
+   {
+    for(int i=1;i<=30;i++)
+    { 
+    	a=(int)(Math.random()*100+0);
+    	b=(int)(Math.random()*100+0);
+    	c=(int)(Math.random()*4+0);
+    	
+    	switch(c)
+    	{case 0:
+    		System.out.print(a+"+"+b+"="+"\t");
+    		break;
+    	case 1:
+    		System.out.print(a+"-"+b+"="+"\t");
+    		break;
+    	case 2:
+    		System.out.print(a+"*"+b+"="+"\t");
+    		break;
+    	case 3:
+    		if(b==0)
+    		{i--;break;}
+    		else
+    		System.out.print(a+"/"+b+"="+"\t");
+            break;
+         }
+    	
+      if(i%5==0)
+  	  {System.out.print("\n");}
+     }
+   }
+    if(n==2)
+   {
+    int d,e,f,g,h;
+    for(int i=1;i<=30;i++)
+    { 
+    	d=(int)(Math.random()*100+0);
+    	e=(int)(Math.random()*100+0);
+    	f=(int)(Math.random()*100+0);
+    	g=(int)(Math.random()*100+0);
+    	h=(int)(Math.random()*4+0);
+       switch(h)
+    	{ 
+    	case 0:
+    		 if(e==0||h==0||d>e||f>g)	
+           	 {i--;break;}
+    		 else
+    		System.out.println("("+d+"/"+e+")"+"+"+"("+f+"/"+g+")"+"="+"\t\t");
+    		break;
+    	case 1:
+    		 if(e==0||h==0||d>e||f>g)	
+           	 {i--;break;}
+    		 else
+    		{System.out.println("("+d+"/"+e+")"+"-"+"("+f+"/"+g+")"+"="+"\t\t");
+    		break;}
+    	case 2:
+    		 if(e==0||h==0||d>e||f>g)	
+           	 {i--;break;}
+    		 else
+    		{System.out.println("("+d+"/"+e+")"+"*"+"("+f+"/"+g+")"+"="+"\t\t");
+    		break;}
+    	case 3:
+    		 if(e==0||h==0||d>e||f>g)	
+           	 {i--;break;}
+    		 else
+    		 { System.out.println("("+d+"/"+e+")"+"/"+"("+f+"/"+g+")"+"="+"\t\t");
+            break;}
+         }
+     }
+   }
+  }
+}
