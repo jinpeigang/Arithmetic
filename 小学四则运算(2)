@@ -1,0 +1,161 @@
+import java.util.Scanner;
+
+public class Cesh{
+
+   public static void main(String []args){
+
+    int a,b,c,n=0,m=0,q,w; String str=null;
+
+    Scanner reader=new Scanner(System.in);
+
+    System.out.print("整数运算请选 1，真分数运算请选 2：");
+
+    n=reader.nextInt();
+
+    System.out.print("请选择题目数量:");
+
+    m=reader.nextInt();
+
+    System.out.print("请选择范围:");
+
+    q=reader.nextInt();
+
+    w=reader.nextInt();
+
+     //整数
+
+    if(n==1)
+
+   {   int e,f,g;
+
+   System.out.print("请选择是否有乘除: 1 有     2 无");
+
+   e=reader.nextInt();
+
+   System.out.print("请选择加减有无负数: 1 有     2 无");
+
+   f=reader.nextInt();
+
+   System.out.print("请选择乘除有无余数: 1 有     2 无");
+
+   g=reader.nextInt();
+
+    for(int i=1;i<=m;i++)
+
+    {    int z[]=new int[m+1];int x[]=new int[m+1];int v[]=new int[m+1];
+
+       a=(int)(Math.random()*(w-q+1)+q);
+
+       b=(int)(Math.random()*(w-q+1)+q);
+
+        if(e==1)              //控制运算有乘除  
+
+            {c=(int)(Math.random()*4+0);}
+
+        else                 //控制运算无乘除
+
+            { c=(int)(Math.random()*2+0);}
+
+       z[i]=a;x[i]=b;v[i]=c;    //将随机产生的数存入三个数组
+
+       for(int j=1;j<=i-1;j++)   //通过判断随机数的异同控制是否重复
+
+       {
+
+         if(z[i]==z[j]&&x[i]==x[j]&&v[i]==v[j])
+
+            {  do        //重复则重新生成ab
+
+               {
+
+            a=(int)(Math.random()*(w-q+1)+q);
+
+               b=(int)(Math.random()*(w-q+1)+q);
+
+               }while(z[i]==z[j]&&x[i]==x[j]&&v[i]==v[j]);
+
+            }
+
+       }
+
+        switch(c)
+
+            { case 0:
+
+                  System.out.print(a+"+"+b+"="+"\t");
+
+                  break;
+
+              case 1:
+
+                  if(f==1)    //加减有余数
+
+                    {System.out.print(a+"-"+b+"="+"\t");
+
+                     break;}
+
+                  else        //加减无余数
+
+                    {if(a<b) 
+
+                        {i--;break;}
+
+                     else
+
+                        {System.out.print(a+"-"+b+"="+"\t");}
+
+                    }
+
+               case 2:
+
+                  System.out.print(a+"*"+b+"="+"\t");
+
+                  break;
+
+              case 3:
+
+                  if(b==0)  //除数为0 则跳出循环i减一
+
+                      {i--;break;}
+
+                  else if(b!=0&&g==2) //乘除无余数
+
+                      { 
+
+                        if(a%b==0)
+
+                         {System.out.print(a+"/"+b+"="+"\t");}
+
+                        else
+
+                         {i--;break;}
+
+                      }
+
+                  else if(b!=0&&g==1)    //乘除有余数
+
+                      {  if(a%b==0)
+
+                           {i--;break;}
+
+                         else
+
+                          {System.out.print(a+"/"+b+"="+"\t"); break;}
+
+                        }
+
+            }
+
+        if(i%5==0) //5个算式一行输出
+
+         {System.out.print("\n");}
+
+   }
+
+}  
+
+    
+ }
+}
+
+ 
